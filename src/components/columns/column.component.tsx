@@ -28,6 +28,7 @@ export type ColumnExternalProps = {
    */
   renderEmptyColumn?: (item: ColumnModel) => JSX.Element;
 
+  columnContainerStyle?: StyleProp<ViewStyle>;
   /**
    * Custom style for the column header container.
    */
@@ -124,7 +125,7 @@ export class Column extends React.Component<Props, State> {
       boardState,
       oneColumnWidth,
       columnWidth,
-
+      columnContainerStyle,
       renderEmptyColumn,
       columnHeaderContainerStyle,
       columnHeaderTitleStyle
@@ -170,7 +171,7 @@ export class Column extends React.Component<Props, State> {
         ref={this.setRefColumn}
         onLayout={this.measureColumn}
         style={[
-          styles.columnContainer, {
+          styles.columnContainer, columnContainerStyle,{
             width: singleDataColumnAvailable ? oneColumnWidth : columnWidth,
             marginRight: singleDataColumnAvailable ? 0 : COLUMN_MARGIN
           }]}>

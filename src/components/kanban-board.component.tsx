@@ -480,13 +480,7 @@ class KanbanBoard extends React.Component<Props, State> {
       dragRotate: rotate,
       startingX,
       startingY } = this.state;
-    const { 
-      renderCardContent,
-      cardContainerStyle,
-      cardTitleTextStyle,
-      cardSubtitleTextStyle,
-      cardContentTextStyle
-     } = this.props;
+    const { renderCardContent } = this.props;
     if (!draggedItem || !movingMode) {
       return;
     }
@@ -513,10 +507,6 @@ class KanbanBoard extends React.Component<Props, State> {
           model={draggedItem!}
           hidden={false}
           renderCardContent={renderCardContent}
-          cardContainerStyle={cardContainerStyle}
-          cardTitleTextStyle={cardTitleTextStyle}
-          cardSubtitleTextStyle={cardSubtitleTextStyle}
-          cardContentTextStyle={cardContentTextStyle}
         />
       </Animated.View>
     );
@@ -550,6 +540,7 @@ class KanbanBoard extends React.Component<Props, State> {
     const {
       renderEmptyColumn,
       columnHeaderContainerStyle,
+      columnContainerStyle,
       columnHeaderTitleStyle
     } = this.props;
     const {
@@ -568,6 +559,7 @@ class KanbanBoard extends React.Component<Props, State> {
         movingMode={movingMode}
         singleDataColumnAvailable={singleDataColumnAvailable}
         renderEmptyColumn={renderEmptyColumn}
+        columnContainerStyle={columnContainerStyle}
         columnHeaderContainerStyle={columnHeaderContainerStyle}
         columnHeaderTitleStyle={columnHeaderTitleStyle}
         deviceWidth={this.props.deviceWidth}
